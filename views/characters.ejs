@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../stylesheets/character.css">
+</head>
+
+<body>
+    <div id="loader">
+        <img class="w-full h-full object-cover" src="../images/image.png" alt="">
+    </div>
+    <div id="main">
+        <div id="page1">
+            <nav class="flex items-center justify-between px-5 py-4 h-[10vh] w-full text-white bg-black">
+                <span class="icon--svg icon--svg mvl-animated-logo" aria-hidden="true"><svg width="130" height="52"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect fill="#EC1D24" width="100%" height="100%"></rect>
+                        <path fill="#FEFEFE"
+                            d="M126.222 40.059v7.906H111.58V4h7.885v36.059h6.757zm-62.564-14.5c-.61.294-1.248.44-1.87.442v-14.14h.04c.622-.005 5.264.184 5.264 6.993 0 3.559-1.58 5.804-3.434 6.705zM40.55 34.24l2.183-18.799 2.265 18.799H40.55zm69.655-22.215V4.007H87.879l-3.675 26.779-3.63-26.78h-8.052l.901 7.15c-.928-1.832-4.224-7.15-11.48-7.15-.047-.002-8.06 0-8.06 0l-.031 39.032-5.868-39.031-10.545-.005-6.072 40.44.002-40.435H21.278L17.64 26.724 14.096 4.006H4v43.966h7.95V26.78l3.618 21.192h4.226l3.565-21.192v21.192h15.327l.928-6.762h6.17l.927 6.762 15.047.008h.01v-.008h.02V33.702l1.845-.27 3.817 14.55h7.784l-.002-.01h.022l-5.011-17.048c2.538-1.88 5.406-6.644 4.643-11.203v-.002C74.894 19.777 79.615 48 79.615 48l9.256-.027 6.327-39.85v39.85h15.007v-7.908h-7.124v-10.08h7.124v-8.03h-7.124v-9.931h7.124z">
+                        </path>
+                        <path fill="#EC1D24" d="M0 0h30v52H0z"></path>
+                        <path fill="#FEFEFE"
+                            d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z">
+                        </path>
+                    </svg>
+                </span>
+                <div class="flex items-center gap-9">
+                    <a class="capitalize text-lg font-semibold tracking-tight" href="/">Home</a>
+                    <a class="capitalize text-lg font-semibold tracking-tight" href="#">Comics</a>
+                    <a class="capitalize text-lg font-semibold tracking-tight" href="/character">Characters</a>
+                    <a class="capitalize text-lg font-semibold tracking-tight" href="#">Movies</a>
+                    <a class="capitalize text-lg font-semibold tracking-tight" href="#">Games</a>
+                    <a class="capitalize text-lg font-semibold tracking-tight mr-9" href="">TV Shows</a>
+                </div>
+            </nav>
+            <section class="flex w-full bg-black text-white">
+                <div class="allCharacters w-[20vw] h-full">
+                </div>
+                <div class="allComics w-[80vw] h-full">
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var tl = gsap.timeline()
+
+        function Locomotive() {
+            gsap.registerPlugin(ScrollTrigger);
+            const locoScroll = new LocomotiveScroll({
+                el: document.querySelector("#main"),
+                smooth: true,
+
+                // for tablet smooth
+                tablet: { smooth: true },
+
+                // for mobile
+                smartphone: { smooth: true }
+            });
+            locoScroll.on("scroll", ScrollTrigger.update);
+
+            ScrollTrigger.scrollerProxy("#main", {
+                scrollTop(value) {
+                    return arguments.length
+                        ? locoScroll.scrollTo(value, 0, 0)
+                        : locoScroll.scroll.instance.scroll.y;
+                },
+                getBoundingClientRect() {
+                    return {
+                        top: 0,
+                        left: 0,
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    };
+                }
+            });
+
+        }
+        Locomotive()
+        function time() {
+            var a = 0;
+            const loadingVal = setInterval(() => {
+                a = a + Math.floor(Math.random() * 15);
+                if (a < 100) {
+                }
+                else {
+                    a = 100;
+                    clearInterval(loadingVal);
+                }
+            }, 100);
+        }
+        function loader() {
+            tl.to("#loader h1", {
+                delay: 1,
+                duration: 1,
+                onStart: time()
+            })
+            tl.to("#loader", {
+                top: "-100vh",
+            })
+        }
+        loader();
+
+
+        let data = [
+            { src: 'https://wallpapercave.com/wp/wp3703420.jpg', name: 'Iron Man' },
+            { src: 'https://wallpaperaccess.com/full/1307339.jpg', name: 'Captian America' },
+            { src: 'https://staticg.sportskeeda.com/editor/2023/06/97cdb-16856916468730-1920.jpg?w=640', name: 'Thor' },
+            { src: 'https://static1.srcdn.com/wordpress/wp-content/uploads/2023/02/hulk-in-avengers-age-of-ultron.jpg', name: 'Hulk' },
+            { src: 'https://lumiere-a.akamaihd.net/v1/images/image_15671350.jpeg?region=0,0,640,480', name: 'Black Widow' },
+            { src: 'https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/11/hawkeye-movies-in-order.jpg', name: 'Hawkeye' },
+            { src: 'https://cdn.mos.cms.futurecdn.net/cUdzu3ZJZsL7fbkriTTh9X.jpg', name: 'Deadpool' },
+            { src: 'https://geekositymag.com/wp-content/uploads/2021/04/Hugh-Jackman-Wants-Look-At-Marvel-Wolverine-Plans-Before-Walking.jpg', name: 'Wolverine' },
+            { src: 'https://miro.medium.com/v2/resize:fit:1000/1*ExCER7Jp6Cd16-3MpFYkDQ.jpeg', name: 'Black Panther' },
+            { src: 'https://i.redd.it/qq3hz0ebig2b1.jpg', name: 'Spider Man' },
+            { src: 'https://i.pinimg.com/originals/ed/a8/5c/eda85ca52db662d206fd2a4eb6a4f92f.jpg', name: 'Loki' },
+            { src: 'https://cdn.marvel.com/content/1x/antman_lob_mas_hlf_01.jpg', name: 'Ant Man' },
+            { src: 'https://wallpapercave.com/wp/wp3717892.jpg', name: 'Vision' },
+
+
+        ]
+
+
+        let yo = "";
+        data.forEach((item) => {
+            yo += `<div class="character h-[20%] w-full bg-transparent  relative ">
+    <img  class="w-full h-full object-cover opacity-70" src="${item.src}" alt="">
+    <h3 class="absolute bottom-0 left-[50%] -translate-x-[50%] -translate-y-[50%] text-white  z-10">${item.name}</h3>
+    </div>`
+        })
+
+        document.querySelector(".allCharacters").innerHTML = yo;
+
+        let charData = [{
+            name: 'Iron Man',
+            src: 'https://my.spline.design/untitled-7fa7f50a1f18c26dff6528ca14cfdb51/',
+            desc: 'Iron Man is a superhero appearing in American comic books published by Marvel Comics. Co-created by writer and editor Stan Lee, developed by scripter Larry Lieber, and designed by artists Don Heck and Jack Kirby, the character first appeared in Tales of Suspense #39 in 1963, and received his own title with Iron Man #1 in 1968. Shortly after his creation, Iron Man was a founding member of a superhero team, the Avengers, with Thor, Ant-Man, the Wasp, and the Hulk. Iron Man stories, individually and with the Avengers, have been published consistently since the characters creationIron Man is the superhero persona of Anthony Edward Tony Stark, a businessman and engineer who runs the weapons manufacturer Stark Industries. When Stark is captured in a war zone and sustains a serious heart wound, he builds his Iron Man armor out of scrap and escapes his captors. Iron Man s suits of armor grant him superhuman strength, flight, energy projection, and other abilities. The character was used to explore political themes, and early Iron Man stories were set in the Cold War. Later stories explored other themes, such as civil unrest, technological advancement, corporate espionage, alcoholism, and governmental authority.'
+        },
+        {
+            name: 'Captian America',
+            src: "https://my.spline.design/untitled-2d2624ec69388345137dc25d19d02b32/",
+            desc: 'Captain America is a superhero created by Joe Simon and Jack Kirby who appears in American comic books published by Marvel Comics. The character first appeared in Captain America Comics #1, published on December 20, 1940, by Timely Comics, a corporate predecessor to Marvel. Captain America s civilian identity is Steve Rogers, a frail man enhanced to the peak of human physical perfection by an experimental "super-soldier serum" after joining the United States Army to aid the country s efforts in World War II. Equipped with an American flag-inspired costume and a virtually indestructible shield, Captain America and his sidekick Bucky Barnes clashed frequently with the villainous Red Skull and other members of the Axis powers. In the final days of the war, an accident left Captain America frozen in a state of suspended animation until he was revived in modern times. He resumes his exploits as a costumed hero and becomes leader of the superhero team the Avengers, but frequently struggles as a "man out of time" to adjust to the new era.The character quickly emerged as Timely s most popular and commercially successful wartime creation upon his original publication, though the popularity of superheroes declined in the post-war period and Captain America Comics was discontinued in 1950. The character saw a short-lived revival in 1953 before returning to comics in 1964, and has since remained in continuous publication. Captain America s creation as an explicitly anti-Nazi figure was a deliberately political undertaking: Simon and Kirby were stridently opposed to the actions of Nazi Germany and supporters of U.S. '
+        },
+        {
+            name: 'Thor',
+            src: 'https://my.spline.design/untitled-9aefd5c340f8da3a7074ef4e894cd088/',
+            desc: "Thor Odinson is a superhero appearing in American comic books published by Marvel Comics. Created by artist Jack Kirby, writer Stan Lee, and scripter Larry Lieber, the character first appeared in Journey into Mystery #83 (1962) and first received his own title with Thor #126 (1966). Thor is an adaptation of the deity of the same name from Norse mythology, and many aspects of Thor's character are based on Norse myth. Comic books featuring Thor have been published across several volumes since the character's introduction.Thor is one of the gods of Asgard and the son of the Asgardian king Odin. In addition to his Asgardian strength and extended lifespan, Thor wields control over the weather, including rain and lightning. He also carries the enchanted hammer Mjolnir that enhances his abilities and grants him the ability to fly. Thor was first introduced as the alter ego of surgeon Donald Blake who acquired Thor's power, but this was later revealed to be a fabrication by Thor's father. Thor has since assumed other human identities and at times ruled as king of Asgard."
+        },
+        {
+            name: 'Hulk',
+            src: 'https://my.spline.design/untitled-f8caa335bbec749b9c30d4e37f5edf03/',
+            desc: "The Hulk is a superhero appearing in American comic books published by Marvel Comics. Created by writer Stan Lee and artist Jack Kirby, the character first appeared in the debut issue of The Incredible Hulk (May 1962). In his comic book appearances, the character, who has dissociative identity disorder (DID), is primarily represented by the alter ego Hulk, a green-skinned, hulking and muscular humanoid possessing a limitless degree of physical strength, and the alter ego Dr. Robert Bruce Banner, a physically weak, socially withdrawn, and emotionally reserved physicist, both of whom typically resent each other. Following his accidental exposure to gamma rays while saving the life of Rick Jones during the detonation of an experimental bomb, Banner is physically transformed into the Hulk when subjected to emotional stress, at or against his will. This transformation often leads to destructive rampages and to conflicts that complicate Banner's civilian life. The Hulk's level of strength is normally conveyed as proportionate to his level of anger. Commonly portrayed as a raging savage, the Hulk has been represented with other alter egos, from a mindless, destructive force (War), to a brilliant warrior (World-Breaker), a self-hating protector (the Devil/Immortal), a genius scientist in his own right (Doc Green), and a gangster (Joe Fixit)."
+        },
+        {
+            name: 'Black Widow',
+            src: 'https://my.spline.design/untitled-bfdaec3347f653701131492b7f43fb27/',
+            desc: "Black Widow is a 2021 American superhero film based on Marvel Comics featuring the character of the same name. Produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures, it is the 24th film in the Marvel Cinematic Universe (MCU). The film was directed by Cate Shortland from a screenplay by Eric Pearson and stars Scarlett Johansson as Natasha Romanoff / Black Widow alongside Florence Pugh, David Harbour, O-T Fagbenle, Olga Kurylenko, William Hurt, Ray Winstone, and Rachel Weisz. Set after the events of Captain America: Civil War (2016), the film sees Romanoff on the run and forced to confront her past as a Russian spy before she became an Avenger. Lionsgate Films began developing a Black Widow film in April 2004, with David Hayter attached to write and direct. The project did not move forward and the character's film rights had reverted to Marvel Studios by June 2006. Johansson was cast in the role for several MCU films beginning with Iron Man 2 (2010), and began discussing a solo film with Marvel. Work began in late 2017 and Shortland was hired in July 2018. Jac Schaeffer and Ned Benson contributed to the script before Pearson joined. The film was written to be a prequel that expands on Romanoff's history and helps end her MCU story following the character's death in Avengers: Endgame (2019). Shortland put an emphasis on the fight sequences and said this was the most violent MCU film so far. Filming took place from May to October 2019 in Norway, England, Budapest, Morocco, and Macon, Georgia."
+        },
+        {
+            name: 'Hawkeye',
+            src: 'https://my.spline.design/untitled-491feaf43982f0b8e9e8a15bcc74d311/',
+            desc: "Hawkeye was introduced as a reluctant villain in Tales of Suspense #57 (Sept. 1964). After two more appearances as a villain in Tales of Suspense #60 and #64 (Dec. 1964 and April 1965), Hawkeye joined the ranks of the Avengers in The Avengers #16 (May 1965). Hawkeye became a perennial member of the team and has made numerous appearances in all five volumes ((vol. 1) (1963–1996), (vol. 2) (1997), (vol. 3) (1999–2004), (vol. 4) (2010–2013), and (vol. 5) (2013–present)), including special issues and Annuals, as well as in The Ultimates. However, Hawkeye's presence in the Avengers—both the team and the series—was sporadic for nearly a decade starting in early 1973. Steve Englehart, the Avengers writer at the time of Hawkeye's departure, explained, When I had Hawkeye quit the Avengers, I liked him, but I wanted to try a different approach, so his leaving fit in with what I was trying to do. Hawkeye featured prominently in the limited series West Coast Avengers #1–4 (Sept. 1984–Dec. 1984) as founder and team leader, before appearing in the ongoing title of the same name, which ran for 102 issues (including eight Annuals) from Oct. 1985–Jan. 1994. The title was renamed Avengers West Coast from #46 (Aug. 1989). Hawkeye also starred concurrently in almost every issue of Solo Avengers, which ran for 40 issues from Dec. 1987–Jan. 1991 (the title was renamed Avengers Spotlight from #21 (Aug. 1989))."
+        },
+        {
+            name: 'Deadpool',
+            src: 'https://my.spline.design/untitled-343a8857e7145e89452539de86d8c940/',
+            desc: "Deadpool is a 2016 American superhero film based on the Marvel Comics character of the same name. Distributed by 20th Century Fox, it is a spin-off of the X-Men film series and its eighth installment overall. Directed by Tim Miller and written by Rhett Reese and Paul Wernick, it stars Ryan Reynolds in the title role alongside Morena Baccarin, Ed Skrein, T. J. Miller, Gina Carano, and Brianna Hildebrand. In the film, Wade Wilson hunts the man who gave him mutant abilities and a scarred physical appearance, becoming the antihero Deadpool.Development of a Deadpool film starring Reynolds began in February 2004, before he played the character in X-Men Origins: Wolverine (2009). Reese and Wernick were hired for a spin-off in 2010, and worked with Reynolds to adapt the character more faithfully (including his fourth wall breaking) after the portrayal in Wolverine was criticized. Miller was hired in 2011. An enthusiastic response to leaked test footage he created with Reynolds led to a greenlight from Fox in 2014. Additional casting began in early 2015, and principal photography took place in Vancouver, British Columbia, from March to May of that year. Several vendors provided visual effects for the film, ranging from the addition of blood and gore to the creation of the CGI character Colossus."
+        }, {
+            name: 'Wolverine',
+            src: 'https://my.spline.design/untitled-9cd72e28e07e8f0c21ed59cc0837274a/',
+            desc: 'Wolverine (birth name: James Howlett; alias: Logan and Weapon X) is a superhero appearing in American comic books published by Marvel Comics, often in association with the X-Men. He is a mutant with animal-keen senses, enhanced physical capabilities, a powerful regenerative ability known as a healing factor, a skeleton reinforced with the unbreakable fictional metal adamantium, and three retractable claws in each hand. In addition to the X-Men, Wolverine has been depicted as a member of X-Force, Alpha Flight, the Fantastic Four, and the Avengers. The common depiction of Wolverine is multifaceted; he is portrayed at once as a gruff loner, susceptible to animalistic “berserker rages” despite his best efforts, while simultaneously being an incredibly knowledgeable and intelligent polyglot, strategist, and martial artist, partially due to his extended lifespan and expansive lived experiences. He has been featured in comic books, films, animation, and video games. The character first appeared in the last panel of The Incredible Hulk #180 before having a larger role in #181 (cover-dated November 1974), in the Bronze Age of Comic Books. He was created by writer Len Wein[2] and Marvel art director John Romita Sr. Romita designed the character s costume, but the character was first drawn for publication by Herb Trimpe. Since 2017, Marvel editor-in-chief Roy Thomas has also claimed co-creator credit.'
+        },
+        {
+            name: 'Black Panther',
+            src: 'https://my.spline.design/untitled-44ba03ea53a7a043a220c2982082a2b4/',
+            desc: "Black Panther is a character appearing in American comic books published by Marvel Comics. Created by writer-editor Stan Lee and artist-coplotter Jack Kirby, the character first appeared in Fantastic Four #52 (July 1966) in the Silver Age of Comic Books.Black Panther s real name is T'Challa, and he is depicted as the king and protector of the fictional African nation of Wakanda. Along with possessing enhanced abilities achieved through ancient Wakandan rituals of drinking the essence of the heart-shaped herb, T'Challa also relies on his proficiency in science, expertise in his nation's traditions, rigorous physical training, hand-to-hand combat skills, and access to wealth and advanced Wakandan technology to combat his enemies. Black Panther is the first black superhero for Marvel comics. In one comic book storyline, the Black Panther mantle is handled by Kasper Cole, a multiracial New York City police officer. Beginning as an impersonator, Cole would later take on the moniker of White Tiger and become an ally to T'Challa. The role of Black Panther and leadership of Wakanda was also given to T'Challa's sister Shuri while he was in a coma for a short time."
+        }, {
+            name: 'Spider Man',
+            src: 'https://my.spline.design/untitled-ced07abaf0763f5de4cf95358cdfe114/',
+            desc: "Spider-Man is a superhero appearing in American comic books published by Marvel Comics. Created by writer-editor Stan Lee and artist Steve Ditko, he first appeared in the anthology comic book Amazing Fantasy #15 (August 1962) in the Silver Age of Comic Books. He has been featured in comic books, television shows, films, video games, novels, and plays. Spider-Man's secret identity is Peter Benjamin Parker. Initially, Peter was depicted as a teenage high-school student and an orphan raised by his Aunt May and Uncle Ben in New York City after his parents Richard and Mary Parker died in a plane crash. Lee and Ditko had the character deal with the struggles of adolescence and financial issues and gave him many supporting characters, such as Flash Thompson, J. Jonah Jameson, and Harry Osborn; romantic interests Gwen Stacy, Mary Jane Watson, and the Black Cat; and enemies such as the Green Goblin, Doctor Octopus, and Venom. In his origin story, Spider-Man gets his superhuman spider-powers and abilities after being bitten by a radioactive spider. These powers include superhuman strength, agility, reflexes, stamina, durability, coordination, and balance; clinging to surfaces and ceilings like a spider; and detecting danger with his precognition ability called spider-sense. He builds wrist-mounted web-shooter devices that shoot artificial spider-webs of his own design, which he uses both for fighting and for web-swinging across the city. Peter Parker originally used his powers for his own personal gain, but after his Uncle Ben was killed by a thief that Peter could not stop, he began to use his powers to fight crime by becoming Spider-Man."
+        }, {
+            name: 'Loki',
+            src: 'https://my.spline.design/untitled-e050e6ea949082eacbf895e2bd0c0b86/',
+            desc: 'Loki Laufeyson is a character appearing in American comic books published by Marvel Comics. Created by writer Stan Lee, scripter Larry Lieber, and penciller Jack Kirby, he is based on the Norse mythological deity of the same name. Although a version of Loki first appeared in Venus #6 (August 1949), his characterization as the adoptive brother and nemesis of the superhero Thor, which has persisted to the modern age, was not introduced until Journey into Mystery #85 (October 1962).In his comic book appearances, Loki is depicted as the Asgardian God of Mischief, a cunning trickster, and a master of Asgardian magic and sorcery. After learning of his true origin as a Frost Giant from Jotunheim, Loki grows jealous of Thor and frequently plots to take the throne of Asgard for himself. His schemes of conquest ultimately reach Earth and inadvertently lead to the formation of the Avengers. While usually portrayed as a supervillain, Loki has also been an antihero at times, working with heroes if their goals align and if it benefits him.'
+        }, {
+            name: 'Ant Man',
+            src: 'https://my.spline.design/untitled-55e80ce47a9abdadb374e710b3b35913/',
+            desc: "Dr. Henry Hank Pym was a Biophysicist and Security Operations Center expert who decided to be the original Ant-Man, a superhero after the death of his first wife Maria Trovaya who had been a political dissident in Hungary. Falling in love with him and believing that his American citizenship would protect her, Maria traveled with Hank to Hungary shortly after their marriage to start their new life together. Unfortunately they were confronted by corrupt agents of the secret police. Hank was knocked unconscious and Maria was murdered. Pym was greatly distraught by his wife's death, and decided to do whatever he could in the future to battle injustice. After discovering a chemical substance, which he called Pym Particles, that would allow the user to alter his size, he armed himself with a helmet that could control ants. After that, Pym would shrink down to the size of an insect as the mystery-solving Ant-Man, solving crimes and stopping criminals.[1] He soon shared his discovery with his second wife Janet van Dyne as his crime-fighting partner Wasp when he helped Janet avenge the death of her scientist father Vernon van Dyne who was killed by an alien unleashed by one of Vernon's own experiments.[2] The duo would be founding members of the Avengers, fighting recurring enemies such as the mad scientist Egghead, the mutant Whirlwind, and Pym's own robotic creation Ultron.[3] While Pym is the original Ant-Man, he has adopted other aliases over the years including Giant-Man, Goliath, Yellowjacket,[2] and Wasp after Janet's presumed death in Secret Invasion.[4] Leaving his original persona vacant, his successors have taken up the Ant-Man role while Pym explored these other identities."
+        }, {
+            name: 'Vision',
+            src: "https://my.spline.design/untitled-6fb5ba085fb60b925d3bb3aad9d0e012/",
+            desc: "The Vision is a superhero appearing in American comic books published by Marvel Comics. Created by Roy Thomas and artist John Buscema, the character first appeared in The Avengers #57 (published in August 1968).[1][2][3] The Vision is loosely based on the Timely Comics character of the same name who was an alien from another dimension. The character is an android (sometimes called a synthezoid) built by the villainous robot Ultron created by Hank Pym. Originally intended to act as Ultron's son and destroy the Avengers, Vision instead turned on his creator and joined the Avengers to fight for the forces of good. Since then, he has been depicted as a frequent member of the team, and, for a time, was married to his teammate, the Scarlet Witch. He also served as a member of the Defenders.The Vision was created from a copy of the original Human Torch, a synthetic man created by Phineas T. Horton. Ultron took this inert android and added more advanced technology to it, as well as new programming of his own design and a copy of human brainwave patterns. The result was the Vision, a synthezoid driven by logic but possessing emotions and able to achieve emotional growth."
+        }]
+        const characterDetails = document.createElement("div");
+        characterDetails.classList.add("characterDetails", "w-full", "flex", "flex-col", "pt-10", "pl-10", "gap-1", "text-white");
+        const allComics = document.querySelector('.allComics');
+        const charactersContainer = document.querySelector(".allCharacters");
+        charactersContainer.addEventListener("click", (event) => {
+            if (event.target.tagName === "H3") {
+                const characterName = event.target.textContent;
+                const selectedCharData = charData.find((char) => char.name === characterName);
+
+                if (selectedCharData) {
+                    characterDetails.innerHTML = `
+                <h1 class="text-8xl w-fit text-white"><span class="font-bold">${selectedCharData.name}</h1>
+                <svg class="mb-5" width="500" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 80 Q 250 80 490 80" stroke="white" fill="transparent"/>
+                </svg>
+                <p class="w-2/3">${selectedCharData.desc}</p>
+                <div class="mt-10 bg-zinc-200 h-[60vh] rounded-lg w-2/3">
+                    <iframe src="${selectedCharData.src}" class="h-full w-full object-cover" frameborder="0"></iframe>
+                </div>
+            `;
+                    allComics.appendChild(characterDetails);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
