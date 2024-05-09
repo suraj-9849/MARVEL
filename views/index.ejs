@@ -7,7 +7,8 @@
     <title>Marvel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../stylesheets/character.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body>
@@ -38,10 +39,19 @@
                     <a class="capitalize text-lg font-semibold tracking-tight mr-9" href="">TV Shows</a>
                 </div>
             </nav>
-    
+            <div class=" swiperJS w-full h-[90vh]">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide bg-zinc-100"></div>
+                        <div class="swiper-slide bg-zinc-100"></div>
+                        <div class="swiper-slide bg-zinc-100"></div>
+                        <div class="swiper-slide bg-zinc-100"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="page2"></div>
-        <div id="page3"></div>
+        <div id="page2" class="w-full h-screen" ></div>
+        <div id="page3" class="w-full h-screen" ></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
@@ -50,6 +60,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var tl = gsap.timeline()
 
@@ -109,6 +120,24 @@
         }
         loader();
 
+
+        // Swiper.JS 
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 1,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     </script>
 </body>
 
