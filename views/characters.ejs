@@ -7,6 +7,7 @@
     <title>Marvel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
     <link rel="stylesheet" href="../stylesheets/character.css">
 </head>
 
@@ -30,12 +31,12 @@
                     </svg>
                 </span>
                 <div class="flex items-center gap-9">
-                    <a class="capitalize text-lg font-semibold tracking-tight" href="/">Home</a>
-                    <a class="capitalize text-lg font-semibold tracking-tight" href="#">Comics</a>
-                    <a class="capitalize text-lg font-semibold tracking-tight" href="/character">Characters</a>
-                    <a class="capitalize text-lg font-semibold tracking-tight" href="#">Movies</a>
-                    <a class="capitalize text-lg font-semibold tracking-tight" href="#">Games</a>
-                    <a class="capitalize text-lg font-semibold tracking-tight mr-9" href="">TV Shows</a>
+                    <a class=" links capitalize text-lg font-semibold tracking-tight" href="/">Home</a>
+                    <a class=" links capitalize text-lg font-semibold tracking-tight" href="#">Comics</a>
+                    <a class=" links capitalize text-lg font-semibold tracking-tight" href="/character">Characters</a>
+                    <a class=" links capitalize text-lg font-semibold tracking-tight" href="#">Movies</a>
+                    <a class=" links capitalize text-lg font-semibold tracking-tight" href="#">Games</a>
+                    <a class=" links capitalize text-lg font-semibold tracking-tight mr-9" href="">TV Shows</a>
                 </div>
             </nav>
             <section class="flex w-full bg-black text-white">
@@ -54,8 +55,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
     <script>
         var tl = gsap.timeline()
+
+        Shery.makeMagnet(".links", {
+            ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+            duration: 1,
+        });
+
 
         function Locomotive() {
             gsap.registerPlugin(ScrollTrigger);
@@ -102,7 +112,7 @@
             }, 100);
         }
         function loader() {
-            tl.to("#loader h1", {
+            tl.to("#loader", {
                 delay: 1,
                 duration: 1,
                 onStart: time()
@@ -208,8 +218,8 @@
         const allComics = document.querySelector('.allComics');
         const charactersContainer = document.querySelector(".allCharacters");
         charactersContainer.addEventListener("click", (event) => {
-            if (event.target.tagName === "H3") {
-                const characterName = event.target.textContent;
+            if (event.target.tagName === "IMG") {
+               const characterName = event.target.parentElement.querySelector("h3").textContent;
                 const selectedCharData = charData.find((char) => char.name === characterName);
 
                 if (selectedCharData) {
@@ -223,6 +233,7 @@
                     <iframe src="${selectedCharData.src}" class="h-full w-full object-cover" frameborder="0"></iframe>
                 </div>
             `;
+                    allComics.innerHTML = "";
                     allComics.appendChild(characterDetails);
                 }
             }
