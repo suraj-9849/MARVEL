@@ -16,8 +16,8 @@
         <img class="w-full h-full object-cover" src="../images/image.png" alt="">
     </div>
     <div id="main">
-        <div id="page1">
-            <nav class="flex items-center justify-between px-5 py-4 h-[10vh] w-full text-white bg-black">
+        <div id="page1 " class="relative">
+            <nav class="flex items-center justify-between px-5 py-4 h-[10vh] w-full text-white absolute z-10">
                 <span class="icon--svg icon--svg mvl-animated-logo" aria-hidden="true"><svg width="130" height="52"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <rect fill="#EC1D24" width="100%" height="100%"></rect>
@@ -39,13 +39,22 @@
                     <a class="capitalize text-lg font-semibold tracking-tight mr-9" href="">TV Shows</a>
                 </div>
             </nav>
-            <div class=" swiperJS w-full h-[90vh]">
+            <div class=" swiperJS w-full h-[100vh] ">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide bg-zinc-100"></div>
-                        <div class="swiper-slide bg-zinc-100"></div>
-                        <div class="swiper-slide bg-zinc-100"></div>
-                        <div class="swiper-slide bg-zinc-100"></div>
+                        <div class="swiper-slide bg-zinc-100">
+                            <img src="https://wallpaperset.com/w/full/0/d/1/465569.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide bg-zinc-100">
+                            <img src="https://wallpaperaccess.com/full/735258.jpg" alt="">
+                        </div>
+                        
+                        <div class="swiper-slide bg-zinc-100">
+                            <video muted loop autoplay src="../videos/BlackPanther.mp4"></video>
+                        </div>
+                        <div class="swiper-slide bg-zinc-100">
+                            <img src="https://wallpaperset.com/w/full/1/5/6/183993.jpg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,13 +129,13 @@
         }
         loader();
 
-
+        document.querySelector('video').playbackRate = 4;
         // Swiper.JS 
         var swiper = new Swiper(".mySwiper", {
             spaceBetween: 1,
             centeredSlides: true,
             autoplay: {
-                delay: 2500,
+                delay: 4500,
                 disableOnInteraction: false,
             },
             pagination: {
