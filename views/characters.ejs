@@ -62,7 +62,7 @@
         var tl = gsap.timeline()
 
         Shery.makeMagnet(".links", {
-            ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+            ease: "cubic-bezier(0.76, 0, 0.24, 1)",
             duration: 1,
         });
 
@@ -73,10 +73,7 @@
                 el: document.querySelector("#main"),
                 smooth: true,
 
-                // for tablet smooth
                 tablet: { smooth: true },
-
-                // for mobile
                 smartphone: { smooth: true }
             });
             locoScroll.on("scroll", ScrollTrigger.update);
