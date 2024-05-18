@@ -45,3 +45,9 @@ html, body {
   position: fixed;
  z-index:999;
 }
+
+
+.marvelStudios video{
+  display: none;
+  opacity: 0;
+}
