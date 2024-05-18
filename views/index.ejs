@@ -12,12 +12,15 @@
 </head>
 
 <body>
-    <div id="loader">
+    <!-- <div id="loader">
         <img class="w-full h-full object-cover" src="../images/image.png" alt="">
-    </div>
+    </div> -->
     <div id="main">
+        <!-- Page 1 -->
         <div id="page1 " class="relative">
+            <!-- Navbar -->
             <nav class="flex items-center justify-between px-5 py-4 h-[10vh] w-full text-white absolute z-10">
+                <!-- Logo -->
                 <span class="icon--svg icon--svg mvl-animated-logo" aria-hidden="true"><svg width="130" height="52"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <rect fill="#EC1D24" width="100%" height="100%"></rect>
@@ -30,6 +33,7 @@
                         </path>
                     </svg>
                 </span>
+                <!-- All the NavElements -->
                 <div class="flex items-center gap-9">
                     <a class="capitalize text-lg font-semibold tracking-tight" href="/">Home</a>
                     <a class="capitalize text-lg font-semibold tracking-tight" href="#">Comics</a>
@@ -39,6 +43,8 @@
                     <a class="capitalize text-lg font-semibold tracking-tight mr-9" href="">TV Shows</a>
                 </div>
             </nav>
+
+            <!-- Swiper In Page 1 -->
             <div class=" swiperJS w-full h-[100vh] ">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
@@ -59,8 +65,14 @@
                 </div>
             </div>
         </div>
-        <div id="page2" class="w-full h-[200vh] flex flex-col items-center relative  ">
+
+        <!-- Page 2 -->
+        <div id="page2" class="w-full h-[170vh] flex flex-col items-center relative  ">
+
+            <!-- Marvel Studios Text Animations -->
             <div class="marvelStudios gap-4 flex h-52 w-fit justify-center items-center absolute top-5 z-10 ">
+
+                <!-- Marvel Logo -->
                 <svg width="130" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <rect fill="#EC1D24" width="100%" height="100%"></rect>
                     <path fill="#FEFEFE"
@@ -71,10 +83,17 @@
                         d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z">
                     </path>
                 </svg>
+
+                <!-- Invisible Video -->
                 <video autoplay muted loop class="w-80 h-40 rounded-md object-cover" src="../videos/marvel.mp4"></video>
+
+                <!-- Studios Text -->
                 <h1 class="leading-loose text-5xl text-white ">Studios</h1>
             </div>
+
+            <!-- The First Row -->
             <div class="firstRow w-full h-[170vh] bg-black relative">
+                <!-- Left Down Video -->
                 <div class="firstleft ">
 
                     <video
@@ -85,6 +104,8 @@
                         color: white; "></div>
                     </video>
                 </div>
+
+                    <!-- Right Top Video -->
                 <div class="firstright bg-red-200 ">
                     <video
                         class="firstRightvideo mr-10 rounded-lg bg-red-200 absolute top-[20%] right-0 z-10 object-cover w-[40vw] h-[50vh] "
@@ -93,15 +114,30 @@
             </div>
 
         </div>
-        <div id="page3" class="w-full h-screen"></div>
+
+        <!-- Page-3 -->
+        <div id="page3" class="w-full h-screen bg-black mb-5 flex flex-col items-center">
+            <!-- Marquee Effect (Logo) -->
+            <div id="marque" class="flex items-center justify-center gap-10 shrink-0  h-[10vh] w-full bg-zinc-100" >
+                <!-- adding the logoImages from the JS named "YO" -->
+            </div>
+        </div>
     </div>
+
+    <!-- Locomotive CDN -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+    <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- Scroll Trigger CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- SwiperJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var tl = gsap.timeline()
@@ -162,7 +198,7 @@
         }
         loader();
 
-        document.querySelector('video').playbackRate = 4;
+        document.querySelector('video').playbackRate = 6;
 
         // Swiper.JS 
         var swiper = new Swiper(".mySwiper", {
@@ -228,10 +264,6 @@
             firstLeftVideo.pause();
         });
 
-        // // document.querySelector('.firstright').addEventListener('mouseleave', function () {
-        //     const videoElement = document.querySelector('.firstRightvideo');
-        //     videoElement.removeAttribute('autoplay');
-        // });
         const videoElement = document.querySelector('.firstRightvideo');
         console.log("Clicked")
         videoElement.pause();
@@ -262,10 +294,42 @@
 
             });
         });
-        // document.querySelector('.firstleft').addEventListener('mouseleave', function () {
-        //     const videoElement = document.querySelector('.firstleftvideo');
-        //     videoElement.removeAttribute('autoplay');
-        // });
+
+
+        let marqueeImages  = [
+            {img:'https://i.pinimg.com/564x/37/08/02/37080265d180367f022559bb41ccd7bc.jpg'},
+            {img:'https://i.pinimg.com/564x/b7/cb/81/b7cb81431848a619680a789f5a03a89c.jpg'},
+            {img:'https://i.pinimg.com/564x/c9/fd/01/c9fd01c751bfd54fa146f8740c9071ca.jpg'},
+            {img:'https://i.pinimg.com/564x/bf/90/d1/bf90d1d2446eab5d8a8a8ec7056270c4.jpg'},
+            {img:'https://i.pinimg.com/564x/2a/97/65/2a9765f1326f4ec9a216fea4ed27f9ae.jpg'},
+            {img:'https://i.pinimg.com/564x/4a/6b/0c/4a6b0c24428a6f9a47fcae777d15e52b.jpg'},
+            {img:'https://i.pinimg.com/564x/47/5c/32/475c32fb4d438cdab2dfe01975320363.jpg'},
+            {img:'https://i.pinimg.com/236x/61/29/58/612958f0a7c90ea7642e0cee5064a14a.jpg'},
+            {img:'https://i.pinimg.com/564x/b2/e1/a9/b2e1a96121d617b6e12fe21e779594b4.jpg'},
+            {img:'https://i.pinimg.com/564x/01/33/2d/01332d49c42df49cde186f8a602053b1.jpg'},
+            {img:'https://i.pinimg.com/564x/ef/21/ca/ef21cafcece5966c96e56ae1df856c5b.jpg'},
+            {img:'https://i.pinimg.com/564x/82/1c/ab/821cabfe0660072fa0c378c1ed78a9b4.jpg'},
+            {img:'https://i.pinimg.com/564x/37/08/02/37080265d180367f022559bb41ccd7bc.jpg'},
+            {img:'https://i.pinimg.com/564x/b7/cb/81/b7cb81431848a619680a789f5a03a89c.jpg'},
+            {img:'https://i.pinimg.com/564x/c9/fd/01/c9fd01c751bfd54fa146f8740c9071ca.jpg'},
+            {img:'https://i.pinimg.com/564x/bf/90/d1/bf90d1d2446eab5d8a8a8ec7056270c4.jpg'},
+            {img:'https://i.pinimg.com/564x/2a/97/65/2a9765f1326f4ec9a216fea4ed27f9ae.jpg'},
+            {img:'https://i.pinimg.com/564x/4a/6b/0c/4a6b0c24428a6f9a47fcae777d15e52b.jpg'},
+            {img:'https://i.pinimg.com/564x/47/5c/32/475c32fb4d438cdab2dfe01975320363.jpg'},
+            {img:'https://i.pinimg.com/236x/61/29/58/612958f0a7c90ea7642e0cee5064a14a.jpg'},
+            {img:'https://i.pinimg.com/564x/b2/e1/a9/b2e1a96121d617b6e12fe21e779594b4.jpg'},
+            {img:'https://i.pinimg.com/564x/01/33/2d/01332d49c42df49cde186f8a602053b1.jpg'},
+            {img:'https://i.pinimg.com/564x/ef/21/ca/ef21cafcece5966c96e56ae1df856c5b.jpg'},
+            {img:'https://i.pinimg.com/564x/82/1c/ab/821cabfe0660072fa0c378c1ed78a9b4.jpg'},
+        ]
+
+        let yo = '';
+       marqueeImages.forEach(item=>{
+            yo += `<img class='rounded-full h-full w-full object-cover' src="${item.img}" alt="">`
+        })
+        document.querySelector('#marque').innerHTML =`<div class="marquee-content rounded-full  ">${yo}</div>`;;
+
+
     </script>
 </body>
 
