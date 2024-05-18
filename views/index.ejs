@@ -79,11 +79,11 @@
 
                     <video
                         class="firstleftvideo ml-10 rounded-lg bg-red-200 absolute bottom-20 z-10 h-[60vh] object-cover w-[40vw]"
-                        autoplay loop muted src="../videos/firstLeft.mp4"></video>
+                        autoplay loop muted src="../videos/firstLeft.mp4">
                         <div id="over-lay" style="text-align: center;
-                        z-index: 20px ; 
-                        color: white; ">
-                        </div>
+                        z-index: 20; 
+                        color: white; "></div>
+                    </video>
                 </div>
                 <div class="firstright bg-red-200 ">
                     <video
@@ -218,10 +218,11 @@
                 opacity: 0.5,
                 duration: 1,
                 ease: "power2.out",
-          onComplete:()=>{
-            let hover_msg = document.getElementById("over-lay");
-                    hover_msg.innerText = "hover to see magic";
-          }
+                onComplete: ()=>{
+                    let hover_msg = document.getElementById("over-lay");
+                    hover_msg.innerText = "Hover me see magic!!";
+                }
+
             });
 
             firstLeftVideo.pause();
@@ -241,10 +242,10 @@
                 duration: 1,
                 ease: "power2.out",
                 onStart: () => {
-                    let hover_msg = document.getElementById("hover_msg");
+                    let hover_msg = document.getElementById("over-lay");
                     hover_msg.innerText = "";
-
                 }
+
             })
             videoElement.play();
         });
@@ -254,11 +255,12 @@
                 opacity: 0.5,
                 duration: 1,
                 ease: "power2.out",
-                onComplete: () => {
-                    let hover_msg = document.getElementById("hover_msg");
-                    hover_msg.innerText = "HOVER TO SEE THE MAGIC";
+                onComplete: ()=>{
+                    let hover_msg = document.getElementById("over-lay");
+                    hover_msg.innerText = "Hover me see magic!!";
                 }
-            })
+
+            });
         });
         // document.querySelector('.firstleft').addEventListener('mouseleave', function () {
         //     const videoElement = document.querySelector('.firstleftvideo');
