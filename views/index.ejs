@@ -76,13 +76,17 @@
             </div>
             <div class="firstRow w-full h-[170vh] bg-black relative">
                 <div class="firstleft ">
+
                     <video
-                        class="firstleftvideo ml-10 rounded-lg bg-red-200 absolute bottom-20 z-10 h-[60vh] object-cover w-[40vw]"autoplay loop muted src="../videos/firstLeft.mp4"></video>
+                        class="firstleftvideo ml-10 rounded-lg bg-red-200 absolute bottom-20 z-10 h-[60vh] object-cover w-[40vw]"
+                        autoplay loop muted src="../videos/firstLeft.mp4"><div id="over-lay" style="text-align: center;
+                        z-index: 20; 
+                        color: white; "></div></video>
                 </div>
                 <div class="firstright bg-red-200 ">
                     <video
                         class="firstRightvideo mr-10 rounded-lg bg-red-200 absolute top-[20%] right-0 z-10 object-cover w-[40vw] h-[50vh] "
-                       autoplay loop muted src="../videos/firstRight.mp4"></video>
+                        autoplay loop muted src="../videos/firstRight.mp4"></video>
                 </div>
             </div>
 
@@ -189,21 +193,70 @@
 
             document.querySelector('.marvelStudios video').style.transition = 'opacity 0.3s ease';
         });
+        const firstLeftVideo = document.querySelector('.firstleftvideo');
+        firstLeftVideo.pause();
 
+        document.querySelector('.firstleft').addEventListener('mouseover', () => {
 
-        document.querySelector('.firstleftvideo').addEventListener('click', function () {
-            const videoElement = document.querySelector('.firstright video');
-            console.log("Clicked")
-            videoElement.autoplay = true;
+            gsap.to('.firstleft', {
+
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+                onStart: () => {
+                    let hover_msg = document.getElementById("over-lay");
+                    hover_msg.innerText = "";
+                }
+
+            })
+            firstLeftVideo.play();
         });
+        document.querySelector('.firstleft').addEventListener('mouseleave', () => {
+            gsap.to('.firstleft', {
+                opacity: 0.5,
+                duration: 1,
+                ease: "power2.out",
+          onComplete:()=>{
+            let hover_msg = document.getElementById("over-lay");
+                    hover_msg.innerText = "hover to see magic";
+          }
+            });
+
+            firstLeftVideo.pause();
+        });
+
         // // document.querySelector('.firstright').addEventListener('mouseleave', function () {
         //     const videoElement = document.querySelector('.firstRightvideo');
         //     videoElement.removeAttribute('autoplay');
         // });
-        document.querySelector('.firstRightvideo').addEventListener('click', function () {
-            const videoElement = document.querySelector('.firstleft video');
-            console.log("Clicked")
-            videoElement.setAttribute('autoplay',"")
+        const videoElement = document.querySelector('.firstRightvideo');
+        console.log("Clicked")
+        videoElement.pause();
+        document.querySelector('.firstright').addEventListener('mouseover', () => {
+            gsap.to('.firstright', {
+
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+                onStart: () => {
+                    let hover_msg = document.getElementById("hover_msg");
+                    hover_msg.innerText = "";
+
+                }
+            })
+            videoElement.play();
+        });
+        document.querySelector('.firstright').addEventListener('mouseleave', () => {
+            videoElement.pause();
+            gsap.to('.firstright', {
+                opacity: 0.5,
+                duration: 1,
+                ease: "power2.out",
+                onComplete: () => {
+                    let hover_msg = document.getElementById("hover_msg");
+                    hover_msg.innerText = "HOVER TO SEE THE MAGIC";
+                }
+            })
         });
         // document.querySelector('.firstleft').addEventListener('mouseleave', function () {
         //     const videoElement = document.querySelector('.firstleftvideo');
