@@ -94,6 +94,7 @@
             <!-- The First Row -->
             <div class="firstRow w-full h-[170vh] bg-black relative">
                 <!-- Left Down Video -->
+
                 <div class="firstleft ">
 
                     <video
@@ -105,8 +106,8 @@
                     </video>
                 </div>
 
-                    <!-- Right Top Video -->
-                <div class="firstright bg-red-200 ">
+                <!-- Right Top Video -->
+                <div class="firstright ">
                     <video
                         class="firstRightvideo mr-10 rounded-lg bg-red-200 absolute top-[20%] right-0 z-10 object-cover w-[40vw] h-[50vh] "
                         autoplay loop muted src="../videos/firstRight.mp4"></video>
@@ -116,12 +117,63 @@
         </div>
 
         <!-- Page-3 -->
-        <div id="page3" class="w-full h-screen bg-black mb-5 flex flex-col items-center">
+        <div id="page3" class="w-full h-[130vh] bg-black mt-[0.1px] pt-10 flex flex-col items-center">
             <!-- Marquee Effect (Logo) -->
-            <div id="marque" class="flex items-center justify-center gap-10 shrink-0  h-[10vh] w-full bg-zinc-100" >
+            <div id="marque" class="flex items-center justify-center gap-10 shrink-0 h-[10vh] w-full mb-10">
                 <!-- adding the logoImages from the JS named "YO" -->
             </div>
+
+
+            <!--Evolution of Marvel  -->
+            <h1 class="w-full inline-block text-white text-center mb-10 mt-20 text-3xl font-bold ">Evolution of Marvel
+            </h1>
+
+            <div class="element flex relative w-full h-[60vh] ">
+                <div id="page3-left" class="w-[30%] flex items-center justify-center flex-col gap-3 mt-5 text-white absolute top-0  left-10 ">
+
+                    <img class="w-[130px] h-[130px] object-contain invert"
+                        src="https://1000logos.net/wp-content/uploads/2021/06/Marvel-Comics-Logo-1963-500x281.png"
+                        alt="">
+
+                    <img class="w-[130px] h-[130px] object-contain invert "
+                        src="https://1000logos.net/wp-content/uploads/2021/06/Marvel-Comics-Logo-1983-500x281.png"
+                        alt="">
+
+                    <img class="w-[130px] h-[130px] object-contain  "
+                        src="https://1000logos.net/wp-content/uploads/2021/06/Marvel-Comics-logo-500x281.jpg" alt="">
+
+                    <img class="w-[130px] h-[130px] object-contain  "
+                        src="https://imgs.search.brave.com/Dwt8EJVvcZgfKcQWNTrhuSBK5A8yq29F81O5UvS13-A/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzdjLzRm/L2NjLzdjNGZjY2Ez/YmUwZjY0OTEyMThm/MDczNjA2MTA2MjYw/LmpwZw"
+                        alt="">
+
+                </div>
+
+                <!-- Cursor Follower -->
+                <div id="page3-right" class="w-1/2 absolute top-0 right-10 ">
+                    <div class="right-elem" id="right-elem1">
+                        <h2 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing. <br> Lorem, ipsum.
+                        </h2>
+                        <img src="https://i.pinimg.com/564x/e5/dc/07/e5dc07105ef10c7dc1cd7f858bb0c353.jpg" alt="">
+                    </div>
+                    <div class="right-elem">
+                        <h2 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing. <br> Lorem, ipsum.
+                        </h2>
+                        <img src="https://i.pinimg.com/564x/e5/dc/07/e5dc07105ef10c7dc1cd7f858bb0c353.jpg" alt="">
+                    </div>
+                    <div class="right-elem">
+                        <h2 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing. <br> Lorem, ipsum.
+                        </h2>
+                        <img src="https://i.pinimg.com/564x/e5/dc/07/e5dc07105ef10c7dc1cd7f858bb0c353.jpg" alt="">
+                    </div>
+                    <div class="right-elem">
+                        <h2 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing. <br> Lorem, ipsum.
+                        </h2>
+                        <img src="https://i.pinimg.com/564x/e5/dc/07/e5dc07105ef10c7dc1cd7f858bb0c353.jpg" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
+        <div id="page4" class="w-full h-screen"></div>
     </div>
 
     <!-- Locomotive CDN -->
@@ -132,205 +184,15 @@
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- Scroll Trigger CDN -->
+    <!-- Scroll Trigger CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- SwiperJS CDN -->
+    <!-- SwiperJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var tl = gsap.timeline()
-
-        function Locomotive() {
-            gsap.registerPlugin(ScrollTrigger);
-            const locoScroll = new LocomotiveScroll({
-                el: document.querySelector("#main"),
-                smooth: true,
-
-                // for tablet smooth
-                tablet: { smooth: true },
-
-                // for mobile
-                smartphone: { smooth: true }
-            });
-            locoScroll.on("scroll", ScrollTrigger.update);
-
-            ScrollTrigger.scrollerProxy("#main", {
-                scrollTop(value) {
-                    return arguments.length
-                        ? locoScroll.scrollTo(value, 0, 0)
-                        : locoScroll.scroll.instance.scroll.y;
-                },
-                getBoundingClientRect() {
-                    return {
-                        top: 0,
-                        left: 0,
-                        width: window.innerWidth,
-                        height: window.innerHeight
-                    };
-                }
-            });
-
-        }
-        Locomotive()
-        function time() {
-            var a = 0;
-            const loadingVal = setInterval(() => {
-                a = a + Math.floor(Math.random() * 15);
-                if (a < 100) {
-                }
-                else {
-                    a = 100;
-                    clearInterval(loadingVal);
-                }
-            }, 100);
-        }
-        function loader() {
-            tl.to("#loader h1", {
-                delay: 1,
-                duration: 1,
-                onStart: time()
-            })
-            tl.to("#loader", {
-                top: "-100vh",
-            })
-        }
-        loader();
-
-        document.querySelector('video').playbackRate = 6;
-
-        // Swiper.JS 
-        var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 1,
-            centeredSlides: true,
-            autoplay: {
-                delay: 4500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
-
-        document.querySelector('.marvelStudios').addEventListener('mouseover', function () {
-            console.log('moveover');
-            document.querySelector('.marvelStudios video').style.display = 'initial';
-            document.querySelector('.marvelStudios video').style.transition = 'opacity 0.3s ease';
-            document.querySelector('.marvelStudios video').style.opacity = '1';
-        });
-        document.querySelector('.marvelStudios').addEventListener('mouseleave', function () {
-            console.log('moveover');
-            document.querySelector('.marvelStudios video').style.display = 'none';
-
-            document.querySelector('.marvelStudios video').style.transition = 'opacity 0.3s ease';
-        });
-        const firstLeftVideo = document.querySelector('.firstleftvideo');
-        firstLeftVideo.pause();
-
-        document.querySelector('.firstleft').addEventListener('mouseover', () => {
-
-            gsap.to('.firstleft', {
-
-                opacity: 1,
-                duration: 1,
-                ease: "power2.out",
-                onStart: () => {
-                    let hover_msg = document.getElementById("over-lay");
-                    hover_msg.innerText = "";
-                }
-
-            })
-            firstLeftVideo.play();
-        });
-        document.querySelector('.firstleft').addEventListener('mouseleave', () => {
-            gsap.to('.firstleft', {
-                opacity: 0.5,
-                duration: 1,
-                ease: "power2.out",
-                onComplete: ()=>{
-                    let hover_msg = document.getElementById("over-lay");
-                    hover_msg.innerText = "Hover me see magic!!";
-                }
-
-            });
-
-            firstLeftVideo.pause();
-        });
-
-        const videoElement = document.querySelector('.firstRightvideo');
-        console.log("Clicked")
-        videoElement.pause();
-        document.querySelector('.firstright').addEventListener('mouseover', () => {
-            gsap.to('.firstright', {
-
-                opacity: 1,
-                duration: 1,
-                ease: "power2.out",
-                onStart: () => {
-                    let hover_msg = document.getElementById("over-lay");
-                    hover_msg.innerText = "";
-                }
-
-            })
-            videoElement.play();
-        });
-        document.querySelector('.firstright').addEventListener('mouseleave', () => {
-            videoElement.pause();
-            gsap.to('.firstright', {
-                opacity: 0.5,
-                duration: 1,
-                ease: "power2.out",
-                onComplete: ()=>{
-                    let hover_msg = document.getElementById("over-lay");
-                    hover_msg.innerText = "Hover me see magic!!";
-                }
-
-            });
-        });
-
-
-        let marqueeImages  = [
-            {img:'https://i.pinimg.com/564x/37/08/02/37080265d180367f022559bb41ccd7bc.jpg'},
-            {img:'https://i.pinimg.com/564x/b7/cb/81/b7cb81431848a619680a789f5a03a89c.jpg'},
-            {img:'https://i.pinimg.com/564x/c9/fd/01/c9fd01c751bfd54fa146f8740c9071ca.jpg'},
-            {img:'https://i.pinimg.com/564x/bf/90/d1/bf90d1d2446eab5d8a8a8ec7056270c4.jpg'},
-            {img:'https://i.pinimg.com/564x/2a/97/65/2a9765f1326f4ec9a216fea4ed27f9ae.jpg'},
-            {img:'https://i.pinimg.com/564x/4a/6b/0c/4a6b0c24428a6f9a47fcae777d15e52b.jpg'},
-            {img:'https://i.pinimg.com/564x/47/5c/32/475c32fb4d438cdab2dfe01975320363.jpg'},
-            {img:'https://i.pinimg.com/236x/61/29/58/612958f0a7c90ea7642e0cee5064a14a.jpg'},
-            {img:'https://i.pinimg.com/564x/b2/e1/a9/b2e1a96121d617b6e12fe21e779594b4.jpg'},
-            {img:'https://i.pinimg.com/564x/01/33/2d/01332d49c42df49cde186f8a602053b1.jpg'},
-            {img:'https://i.pinimg.com/564x/ef/21/ca/ef21cafcece5966c96e56ae1df856c5b.jpg'},
-            {img:'https://i.pinimg.com/564x/82/1c/ab/821cabfe0660072fa0c378c1ed78a9b4.jpg'},
-            {img:'https://i.pinimg.com/564x/37/08/02/37080265d180367f022559bb41ccd7bc.jpg'},
-            {img:'https://i.pinimg.com/564x/b7/cb/81/b7cb81431848a619680a789f5a03a89c.jpg'},
-            {img:'https://i.pinimg.com/564x/c9/fd/01/c9fd01c751bfd54fa146f8740c9071ca.jpg'},
-            {img:'https://i.pinimg.com/564x/bf/90/d1/bf90d1d2446eab5d8a8a8ec7056270c4.jpg'},
-            {img:'https://i.pinimg.com/564x/2a/97/65/2a9765f1326f4ec9a216fea4ed27f9ae.jpg'},
-            {img:'https://i.pinimg.com/564x/4a/6b/0c/4a6b0c24428a6f9a47fcae777d15e52b.jpg'},
-            {img:'https://i.pinimg.com/564x/47/5c/32/475c32fb4d438cdab2dfe01975320363.jpg'},
-            {img:'https://i.pinimg.com/236x/61/29/58/612958f0a7c90ea7642e0cee5064a14a.jpg'},
-            {img:'https://i.pinimg.com/564x/b2/e1/a9/b2e1a96121d617b6e12fe21e779594b4.jpg'},
-            {img:'https://i.pinimg.com/564x/01/33/2d/01332d49c42df49cde186f8a602053b1.jpg'},
-            {img:'https://i.pinimg.com/564x/ef/21/ca/ef21cafcece5966c96e56ae1df856c5b.jpg'},
-            {img:'https://i.pinimg.com/564x/82/1c/ab/821cabfe0660072fa0c378c1ed78a9b4.jpg'},
-        ]
-
-        let yo = '';
-       marqueeImages.forEach(item=>{
-            yo += `<img class='rounded-full h-full w-full object-cover' src="${item.img}" alt="">`
-        })
-        document.querySelector('#marque').innerHTML =`<div class="marquee-content rounded-full  ">${yo}</div>`;;
-
-
-    </script>
+    <script src="../javascripts/script.js"></script>
+   
 </body>
 
 </html>
