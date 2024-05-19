@@ -185,8 +185,13 @@
          <video autoplay loop muted class=" page4video w-[0vw] " src="../videos/page4vidoe.mp4"></video>
         </div>
 
-        <div id="page5" class="w-full bg-black h-screen" >
-
+        <div id="page5" class=" flex items-center justify-center w-full bg-black h-screen relative" >
+            <div class="text w-1/2">
+                <h2 class="text-center text-2xl text-white " >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tenetur distinctio vero consectetur libero doloribus eum itaque dolore placeat. Vero molestiae, quisquam, laborum eligendi deleniti perferendis eaque aspernatur distinctio molestias quam atque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, voluptatem eligendi magnam perspiciatis est fuga commodi illo corrupti nam expedita ut quidem cum voluptate molestiae temporibus nisi architecto ipsam illum similique quaerat aperiam? Ab!
+                </h2>
+            </div>
+            <img class="thanos-hand w-[100px] h-[100px] absolute bottom-20 rounded-full " src="..//images/Thanos-snap.png" alt="">
         </div>
     </div>
 
@@ -208,6 +213,48 @@
     <!-- SwiperJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../javascripts/script.js"></script>
+    <script src="../javascripts/anime.min.js"></script>
+    <script>
+    
+
+   function textAnimation(){
+    let text =  document.querySelector("#page5 .text h2")
+
+    // This will break the h2 into the span
+       text.innerHTML = text.textContent.replace(/\S/g, "<span >$&</span>")  
+
+       const animation = anime.timeline({
+
+        targets:' #page5 .text h2 span',
+        easing: 'easeInOutExpo',    
+       })
+
+       animation.add({
+        rotate:function(){
+            return anime.random(-360,360)
+        },
+        translateY:function(){
+            return anime.random(-170,170)
+        },
+        translateX:function(){
+            return anime.random(-170,170)
+        },
+        duration:5000,
+        delay:anime.stagger(20)
+       })
+    }
+
+// textAnimation()
+
+    document.querySelector('.thanos-hand').addEventListener('click', function(){
+        textAnimation()
+        document.querySelector('.thanos-hand').src= '../images/Thanos-Clicked.png'
+    })
+    document.querySelector('.thanos-hand').addEventListener('dblclick', function(){
+        // textAnimation()
+        document.querySelector('.thanos-hand').src= '../images/Thanos-snap.png'
+    })
+    </script>
    
 </body>
 

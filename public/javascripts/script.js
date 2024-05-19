@@ -263,7 +263,7 @@ function page4Animation() {
         start: "top 27%",
         end: "top 0",
         scrub: 3,
-        markers:true
+        // markers:true
     }
    },"same")
    tl.to('#page4 .letsExplore .h1-2',{
@@ -275,7 +275,7 @@ function page4Animation() {
         start: "top 27%",
         end: "top 0",
         scrub: 3,
-        markers:true
+        // markers:true
     }
    },"same")
    tl.to('#page4 .letsExplore .h1-3',{
@@ -287,7 +287,7 @@ function page4Animation() {
         start: "top 27%",
         end: "top 0",
         scrub: 3,
-        markers:true
+        // markers:true
     }
    },"same")
    tl.to('#page4 video',{

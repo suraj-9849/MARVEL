@@ -109,3 +109,9 @@ html, body {
   scale: 0;
 }
 
+
+
+.text span{
+  position: relative;
+  display: inline-block;
+}
