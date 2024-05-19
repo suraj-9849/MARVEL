@@ -220,6 +220,8 @@ function marque(){
 
 marque()
 
+
+// Page 3 Animation
 function page3Animation() {
     var rightElems = document.querySelectorAll(".right-elem")
     rightElems.forEach(function (item) {
@@ -248,3 +250,56 @@ function page3Animation() {
 }
 
 page3Animation()
+
+function page4Animation() {
+   let tl =  gsap.timeline()
+
+   tl.to('#page4 .letsExplore .h1-1',{
+    x:1000,
+    opacity:0,
+    scrollTrigger: {
+        trigger: "#page4 .letsExplore .h1-1",
+        scroller: "#main",
+        start: "top 27%",
+        end: "top 0",
+        scrub: 3,
+        markers:true
+    }
+   },"same")
+   tl.to('#page4 .letsExplore .h1-2',{
+    x:-1000,
+    opacity:0,
+    scrollTrigger: {
+        trigger: "#page4 .letsExplore .h1-2",
+        scroller: "#main",
+        start: "top 27%",
+        end: "top 0",
+        scrub: 3,
+        markers:true
+    }
+   },"same")
+   tl.to('#page4 .letsExplore .h1-3',{
+    scale:0,
+    opacity:-1,
+    scrollTrigger: {
+        trigger: "#page4 .letsExplore .h1-3",
+        scroller: "#main",
+        start: "top 27%",
+        end: "top 0",
+        scrub: 3,
+        markers:true
+    }
+   },"same")
+   tl.to('#page4 video',{
+    width:'80vw',
+    scrollTrigger: {
+        trigger: "#page4 ",
+        scroller: "#main",
+        start: "top 97%",
+        end: "top 0",
+        scrub: 3,
+    }
+   },"same")
+    
+}
+page4Animation()
