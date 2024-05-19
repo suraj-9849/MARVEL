@@ -302,4 +302,42 @@ function page4Animation() {
    },"same")
     
 }
+
 page4Animation()
+
+
+
+function textAnimation(){
+    let text =  document.querySelector("#page5 .text h2")
+
+    // This will break the h2 into the span
+       text.innerHTML = text.textContent.replace(/\S/g, "<span >$&</span>")  
+
+       const animation = anime.timeline({
+
+        targets:' #page5 .text h2 span',
+        easing: 'easeInOutExpo',    
+       })
+
+       animation.add({
+        rotate:function(){
+            return anime.random(-360,360)
+        },
+        translateY:function(){
+            return anime.random(-170,170)
+        },
+        translateX:function(){
+            return anime.random(-170,170)
+        },
+        duration:5000,
+        delay:anime.stagger(20)
+       })
+    }
+
+// textAnimation()
+    document.querySelector('.thanos-hand').addEventListener('click', function(){
+        textAnimation()
+        document.querySelector('.thanos-hand').src= '../images/Thanos-Clicked.png'
+    })
+
+

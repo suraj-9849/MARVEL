@@ -212,50 +212,10 @@
 
     <!-- SwiperJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../javascripts/script.js"></script>
-    <script src="../javascripts/anime.min.js"></script>
-    <script>
     
 
-   function textAnimation(){
-    let text =  document.querySelector("#page5 .text h2")
-
-    // This will break the h2 into the span
-       text.innerHTML = text.textContent.replace(/\S/g, "<span >$&</span>")  
-
-       const animation = anime.timeline({
-
-        targets:' #page5 .text h2 span',
-        easing: 'easeInOutExpo',    
-       })
-
-       animation.add({
-        rotate:function(){
-            return anime.random(-360,360)
-        },
-        translateY:function(){
-            return anime.random(-170,170)
-        },
-        translateX:function(){
-            return anime.random(-170,170)
-        },
-        duration:5000,
-        delay:anime.stagger(20)
-       })
-    }
-
-// textAnimation()
-
-    document.querySelector('.thanos-hand').addEventListener('click', function(){
-        textAnimation()
-        document.querySelector('.thanos-hand').src= '../images/Thanos-Clicked.png'
-    })
-    document.querySelector('.thanos-hand').addEventListener('dblclick', function(){
-        // textAnimation()
-        document.querySelector('.thanos-hand').src= '../images/Thanos-snap.png'
-    })
-    </script>
-   
 </body>
 
 </html>
