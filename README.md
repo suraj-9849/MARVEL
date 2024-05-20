@@ -10,7 +10,7 @@
 ## To view the Project: 🪄
 
 ### 1.Clone the Repo :
- ```clone the repo```
+ ```[clone the repo](https://github.com/suraj-9849/MARVEL.git)```
 ### 2. In the terminal :
   ```code -r MARVEL```
 ### 3. Install all the dependencies :
