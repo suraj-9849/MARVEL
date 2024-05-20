@@ -1,19 +1,22 @@
-### Pre-requirements:
-## 1.Nodejs must be installed
-## 2.Nodemon must be installed 
+## Pre-requirements: (Must and should)
+
+### 1.Nodejs must be installed
+### 2.Nodemon must be installed 
  For installing after installing the node.js then type this command in the VSCODE terminal
+
  ``` npm i nodemon ```
 
-# 
 
-## 1.Clone the Repo :
+## To view the Project: 🪄
+
+### 1.Clone the Repo :
  ```clone the repo```
-## 2. In the terminal :
+### 2. In the terminal :
   ```code -r MARVEL```
-## 3. Install all the dependencies :
+### 3. Install all the dependencies :
 ``` npm i ```
-## 4. Run this Command to start the Server :
+### 4. Run this Command to start the Server :
 ``` npx nodemon ```
-## 5. Go to any Browser and type 
+### 5. Go to any Browser and type 
 ``` localhost:3000```
-There you go! You can see the Website
+There you go! You can see the Website 🚀
