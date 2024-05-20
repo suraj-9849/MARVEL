@@ -1,4 +1,4 @@
-#Pre-requirements:
+### Pre-requirements:
 ## 1.Nodejs must be installed
 ## 2.Nodemon must be installed 
  For installing after installing the node.js then type this command in the VSCODE terminal
