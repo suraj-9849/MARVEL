@@ -5,7 +5,7 @@
  For installing after installing the node.js then type this command in the VSCODE terminal
 
  ``` npm i nodemon ```
-
+### 3.Git must be installed 
 
 ## To view the Project: 🪄
 
