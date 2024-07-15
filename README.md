@@ -1,4 +1,5 @@
 ## Pre-requirements: (Must and should)
+(Everything is underConstruction not yet build only you can see (Home,Characters Page))
 
 ### 1.Nodejs must be installed
 ### 2.Nodemon must be installed 
